@@ -66,11 +66,6 @@ export default class Git {
     );
     return this.parseOutput(ps.stdout);
   }
-  private async getStageFiles(cwd: string): Promise<string[]> {
-    return (await this.getGitStatus(cwd))
-      .filter(v => !!v.mode)
-      .map(v => v.file);
-  }
   private async getUnStageFiles(cwd: string): Promise<string[]> {
     return (await this.getGitStatus(cwd)).filter(v => !v.mode).map(v => v.file);
   }
@@ -147,7 +142,7 @@ export default class Git {
 
     let scope = "";
     if (!isSimpleMode) {
-      const result = await vscode.window.showInputBox({
+      const r = await vscode.window.showInputBox({
         placeHolder: this.i18n.localize("placeholder.scope"),
         prompt: this.generateCommitMessage({
           type: type.value,
@@ -157,9 +152,9 @@ export default class Git {
           footer: ""
         })
       });
-      if (result) {
-        scope = result;
-      } else if (result === undefined) {
+      if (r) {
+        scope = r;
+      } else if (r === undefined) {
         // cancel
         return;
       }
