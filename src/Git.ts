@@ -159,6 +159,9 @@ export default class Git {
       });
       if (result) {
         scope = result;
+      } else if (result === undefined) {
+        // cancel
+        return;
       }
     }
 
@@ -192,6 +195,9 @@ export default class Git {
       });
       if (result) {
         body = result;
+      } else if (result === undefined) {
+        // cancel
+        return;
       }
     }
 
