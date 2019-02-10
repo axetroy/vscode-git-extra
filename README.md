@@ -2,6 +2,11 @@
 
 Git enhancement
 
+## Features
+
+* [x] Add Button for Pull
+* [x] Add Button for Commit and Push with message validator
+
 ## [CHANGELOG](https://github.com/axetroy/vscode-git-extra/blob/master/CHANGELOG.md)
 
 ## Contributors
