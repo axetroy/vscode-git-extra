@@ -25,9 +25,9 @@ export default class Git {
     return Boolean(result.stdout);
   }
   private generateCommitMessage(meta: IMessageMeta): string {
-    const { type, scope, subject: _subject, body, footer } = meta;
-    const firstChartSubject = _subject[0].toLowerCase();
-    const arr = _subject.split("");
+    const { type, scope, subject: subjectTemp, body, footer } = meta;
+    const firstChartSubject = subjectTemp[0].toLowerCase();
+    const arr = subjectTemp.split("");
     arr[0] = firstChartSubject;
     const subject = arr.join("");
     let message = `${type}${scope ? "(" + scope.trim() + ")" : ""}: ${subject}`;
@@ -178,7 +178,7 @@ export default class Git {
     let body = "";
 
     if (!isSimpleMode) {
-      const result = await vscode.window.showInputBox({
+      const r = await vscode.window.showInputBox({
         placeHolder: this.i18n.localize("placeholder.body"),
         prompt: this.generateCommitMessage({
           type: type.value,
@@ -188,9 +188,9 @@ export default class Git {
           footer: ""
         })
       });
-      if (result) {
-        body = result;
-      } else if (result === undefined) {
+      if (r) {
+        body = r;
+      } else if (r === undefined) {
         // cancel
         return;
       }
