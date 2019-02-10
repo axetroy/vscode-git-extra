@@ -1,0 +1,114 @@
+{
+  "name": "vscode-git-extra",
+  "displayName": "git-extra",
+  "description": "Git enhancement",
+  "version": "0.0.1",
+  "publisher": "axetroy",
+  "engines": {
+    "vscode": "^1.21.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axetroy/vscode-git-extra.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/axetroy/vscode-git-extra/issues"
+  },
+  "homepage": "https://github.com/axetroy/vscode-git-extra#readme",
+  "keywords": [
+    "git",
+    "vscode",
+    "extension"
+  ],
+  "categories": [
+    "Other"
+  ],
+  "icon": "resources/icon.png",
+  "main": "./out/extension",
+  "activationEvents": [
+    "onCommand:git-extra.commit",
+    "onCommand:git-extra.pull"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "git-extra.pull",
+        "category": "git-extra",
+        "title": "%cmd.pull.title%",
+        "icon": {
+          "dark": "resources/dark/pull.svg",
+          "light": "resources/light/pull.svg"
+        }
+      },
+      {
+        "command": "git-extra.commit",
+        "category": "git-extra",
+        "title": "%cmd.commit.title%",
+        "icon": {
+          "dark": "resources/dark/commit.svg",
+          "light": "resources/light/commit.svg"
+        }
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "git-extra.commit",
+          "group": "navigation@-1"
+        },
+        {
+          "command": "git-extra.pull",
+          "group": "navigation@-1"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "git-extra.commit",
+          "when": "never"
+        },
+        {
+          "command": "git-extra.pull",
+          "when": "never"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Git extra configuration",
+      "properties": {
+        "git-extra.simple": {
+          "type": "boolean",
+          "default": true,
+          "description": "%ext.config.simple%"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./ && npm run lint",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "lint": "tslint -p ./ -c tslint.json",
+    "test": "npm run compile && node ./node_modules/vscode/bin/test",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+  },
+  "devDependencies": {
+    "@types/execa": "^0.9.0",
+    "@types/fs-extra": "^5.0.4",
+    "@types/mocha": "^2.2.42",
+    "@types/node": "^9.6.6",
+    "conventional-changelog-cli": "^1.3.16",
+    "tslint": "^5.8.0",
+    "tslint-config-prettier": "^1.10.0",
+    "typescript": "^2.8.1",
+    "vscode": "^1.1.14"
+  },
+  "dependencies": {
+    "execa": "^1.0.0",
+    "fs-extra": "^7.0.1",
+    "reflect-metadata": "^0.1.13",
+    "simple-git": "^1.107.0",
+    "typedi": "^0.8.0"
+  }
+}

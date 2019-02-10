@@ -1,0 +1,22 @@
+{
+  "ext.config.simple": "enable simple mode",
+  "cmd.commit.title": "Commit",
+  "cmd.pull.title": "Pull",
+  "selection.feat.desc": "New features",
+  "selection.fix.desc": "Fix bugs",
+  "selection.docs.desc": "Documentation update",
+  "selection.style.desc": "Code style update",
+  "selection.refactor.desc": "Refactor code. function does not change",
+  "selection.test.desc": "Add/Update test case",
+  "selection.chroe.desc": "Changes to the build process or aids",
+  "placeholder.type": "Please select the code change type",
+  "placeholder.scope": "[Optional] Please input the score effect",
+  "placeholder.subject": "[*Required] Please input the subject of message",
+  "placeholder.body": "[Optional] Please input a detailed change description",
+  "prompt.scope": "Please input the score effect",
+  "prompt.subject": "Please input the subject of message",
+  "prompt.body": "Please input a detailed change description",
+  "tip.message.nofile": "No file submission in the workspace",
+  "action.push": "Push to remote",
+  "common.stage": "Notice: there are {0} files not in stage"
+}

@@ -1,0 +1,22 @@
+{
+  "ext.config.simple": "启用简易模式",
+  "cmd.commit.title": "提交",
+  "cmd.pull.title": "拉取",
+  "selection.feat.desc": "添加新特性",
+  "selection.fix.desc": "修复 bugs",
+  "selection.docs.desc": "文档更新",
+  "selection.style.desc": "代码风格变更",
+  "selection.refactor.desc": "重构代码, 既不新增功能，也不移除",
+  "selection.test.desc": "添加/更新 测试用例",
+  "selection.chroe.desc": "构建过程或辅助工具的变动",
+  "placeholder.type": "请选择代码变更类型",
+  "placeholder.scope": "[可选] 请输入变更的影响范围",
+  "placeholder.subject": "[*必填] 请输入提交信息的标题",
+  "placeholder.body": "[可选] 请输入详细变更描述",
+  "prompt.scope": "请输入变更的影响范围",
+  "prompt.subject": "请输入提交信息的标题",
+  "prompt.body": "请输入详细变更描述",
+  "tip.message.nofile": "工作区没有文件提交",
+  "action.push": "推送到远端",
+  "common.stage": "注意: 还有 {0} 个文件不在缓冲区"
+}
