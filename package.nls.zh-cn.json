@@ -13,6 +13,7 @@
   "placeholder.scope": "[可选] 请输入变更的影响范围",
   "placeholder.subject": "[*必填] 请输入提交信息的标题",
   "placeholder.body": "[可选] 请输入详细变更描述",
+  "placeholder.wordspace": "请选择工作区",
   "prompt.scope": "请输入变更的影响范围",
   "prompt.subject": "请输入提交信息的标题",
   "prompt.body": "请输入详细变更描述",

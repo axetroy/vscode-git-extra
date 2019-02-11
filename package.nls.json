@@ -13,6 +13,7 @@
   "placeholder.scope": "[Optional] Please input the score effect",
   "placeholder.subject": "[*Required] Please input the subject of message",
   "placeholder.body": "[Optional] Please input a detailed change description",
+  "placeholder.wordspace": "Please select workspace",
   "prompt.scope": "Please input the score effect",
   "prompt.subject": "Please input the subject of message",
   "prompt.body": "Please input a detailed change description",

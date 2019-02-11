@@ -1,4 +1,5 @@
 import * as vscode from "vscode";
+import * as os from "os";
 const simpleGit = require("simple-git");
 import * as execa from "execa";
 import { Inject, Service } from "typedi";
@@ -16,6 +17,8 @@ interface IMessageMeta {
   body?: string;
   footer?: string;
 }
+
+const homeDir = os.homedir();
 
 @Service()
 export default class Git {
@@ -70,7 +73,28 @@ export default class Git {
     return (await this.getGitStatus(cwd)).filter(v => !v.mode).map(v => v.file);
   }
   public async commit(): Promise<void> {
-    const cwd = vscode.workspace.rootPath;
+    let cwd = vscode.workspace.rootPath;
+
+    const workspaceFolders = vscode.workspace.workspaceFolders || [];
+    if (workspaceFolders.length > 1) {
+      const picker = await vscode.window.showQuickPick(
+        workspaceFolders.map(v => {
+          return {
+            label: v.name,
+            description: v.uri.path.replace(
+              new RegExp("^" + homeDir, "i"),
+              "~"
+            ),
+            path: v.uri.path
+          };
+        }),
+        { placeHolder: this.i18n.localize("placeholder.wordspace") }
+      );
+      if (!picker) {
+        return;
+      }
+      cwd = picker.path;
+    }
 
     if (!cwd) {
       return;
